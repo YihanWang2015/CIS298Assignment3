@@ -1,5 +1,6 @@
 package edu.kvcc.cis298.cis298assignment3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -87,8 +88,16 @@ public class WineListFragment extends Fragment{
 
         @Override
         public void onClick(View v){
-            Toast.makeText(getActivity(), mWine.getName() + "Clicked!", Toast.LENGTH_SHORT)
-                    .show();
+           /* Toast.makeText(getActivity(), mWine.getName() + "Clicked!", Toast.LENGTH_SHORT)
+                    .show();*/
+
+
+            //Intent intent = new Intent(getActivity(), BeverageActivity.class);
+            Intent intent = BeverageActivity.newIntent(getContext(), mWine.getId());
+
+            startActivity(intent);
+
+
         }
 
 
@@ -98,6 +107,8 @@ public class WineListFragment extends Fragment{
             mNameTextView.setText(mWine.getName());
             mItemNumberTextView.setText(mWine.getItemNumber());
             mPriceTextView.setText(mWine.getPrice());
+
+
         }
 
     }
