@@ -28,10 +28,11 @@ public class WineLab {
     private WineLab(Context context){
         mWines = new ArrayList<>();
 
-        for(int i = 0; i<100; i++){
+        for(int i = 0; i<10; i++){
             Wine wine = new Wine();
+            wine.setName("Wine Name" + i);
             wine.setItemNumber("Wine #" + i);
-            wine.setPack("Wine Pack" + i);
+            wine.setPack("Wine Pack $" + i);
             wine.setPrice("Wine Price" + i);
             wine.setActive(i % 2 == 0);
             mWines.add(wine);

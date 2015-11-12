@@ -8,6 +8,34 @@
 
 
 
+    <TextView
+        android:id="@+id/list_item_wine_price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="4dp"/>
+
+
+
+    <TextView
+        android:id="@+id/list_item_wine_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/list_item_wine_price_text_view"
+        android:textStyle="bold"
+        android:padding="4dp"
+        tools:text="WineName"/>
+
+    <TextView
+        android:id="@+id/list_item_wine_item_number_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_wine_name_text_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
 
 
 </RelativeLayout>
