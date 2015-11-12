@@ -41,6 +41,14 @@ public class WineLab {
 
     }
 
+
+
+    public List<Wine> getWines(){
+
+        return mWines;
+    }
+
+
     public Wine getWine(UUID id){
 
         for(Wine wine : mWines){
