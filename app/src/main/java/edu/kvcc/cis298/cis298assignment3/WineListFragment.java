@@ -102,7 +102,8 @@ public class WineListFragment extends Fragment{
 
 
             //Intent intent = new Intent(getActivity(), BeverageActivity.class);
-            Intent intent = BeverageActivity.newIntent(getContext(), mWine.getId());
+           // Intent intent = BeverageActivity.newIntent(getContext(), mWine.getId());
+            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getId());
 
             startActivity(intent);
 
