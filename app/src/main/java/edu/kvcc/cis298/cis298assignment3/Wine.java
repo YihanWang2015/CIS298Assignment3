@@ -20,6 +20,19 @@ public class Wine {
         mId = UUID.randomUUID();
     }
 
+
+    public Wine(UUID uuid, String name, String pack, String price, boolean isActive){
+
+        mId = uuid;
+      // mItemNumber = itemNumber;
+        mName = name;
+        mPack = pack;
+        mPrice = price;
+        mActive = isActive;
+    }
+
+
+
     public UUID getId() {
         return mId;
     }
