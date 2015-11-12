@@ -8,6 +8,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 /**
@@ -17,6 +19,12 @@ public class WineFragment extends Fragment  {
 
     private Wine mWine;
     private EditText mNameField;
+
+    private EditText mItemNumberField;
+    private EditText mPackField;
+    private EditText mPriceField;
+
+    private CheckBox mActiveCheckBox;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,6 @@ public class WineFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
-
 
 
         mNameField = (EditText)v.findViewById(R.id.wine_name);
@@ -51,8 +58,73 @@ public class WineFragment extends Fragment  {
         });
 
 
+        mItemNumberField = (EditText)v.findViewById(R.id.wine_item_number);
+        mItemNumberField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //left blank
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mWine.setItemNumber(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //this one too
+            }
+        });
+
+
+        mPackField = (EditText)v.findViewById(R.id.wine_pack);
+        mPackField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //left blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mWine.setPack(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        mPriceField = (EditText)v.findViewById(R.id.wine_price);
+        mPriceField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //left blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mWine.setPrice(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //this one too
+            }
+        });
+
+        mActiveCheckBox = (CheckBox)v.findViewById(R.id.wine_active);
+        mActiveCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //Set the wine's active property
+
+                mWine.setActive(isChecked);
+            }
+        });
 
         return v;
+
     }
 }
