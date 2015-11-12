@@ -41,7 +41,11 @@ public class WineListFragment extends Fragment{
     }
 
 
-
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
 
 
 
@@ -50,8 +54,13 @@ public class WineListFragment extends Fragment{
         WineLab wineLab = WineLab.get(getActivity());
         List<Wine> wines = wineLab.getWines();
 
-        mAdapter = new WineAdapter(wines);
-        mWineRecyclerView.setAdapter(mAdapter);
+
+        if(mAdapter == null ) {
+            mAdapter = new WineAdapter(wines);
+            mWineRecyclerView.setAdapter(mAdapter);
+        }else{
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
 

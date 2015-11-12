@@ -19,6 +19,8 @@ import java.util.UUID;
  */
 public class WineFragment extends Fragment  {
 
+    private static final String ARG_WINE_ID = "wine_id";
+
     private Wine mWine;
     private EditText mNameField;
 
@@ -28,11 +30,29 @@ public class WineFragment extends Fragment  {
 
     private CheckBox mActiveCheckBox;
 
+
+    public static WineFragment newInstance(UUID wineId){
+
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_WINE_ID, wineId);
+
+        WineFragment fragment = new WineFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // mWine = new Wine();
-        UUID wineId = (UUID) getActivity().getIntent().getSerializableExtra(BeverageActivity.EXTRA_WINE_ID);
+
+      // UUID wineId = (UUID) getActivity().getIntent().getSerializableExtra(BeverageActivity.EXTRA_WINE_ID);
+
+        UUID wineId = (UUID) getArguments().getSerializable(ARG_WINE_ID);
+
         mWine = WineLab.get(getActivity()).getWine(wineId);
 
     }

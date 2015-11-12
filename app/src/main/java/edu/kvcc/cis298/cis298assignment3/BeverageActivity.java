@@ -29,7 +29,10 @@ public class BeverageActivity extends SingleFragmentActivity {
 
     }*/
 
-    public static final String EXTRA_WINE_ID =
+/*    public static final String EXTRA_WINE_ID =
+            "edu.kvcc.cis298.cis298assignment3.wine_id";*/
+
+    private static final String EXTRA_WINE_ID =
             "edu.kvcc.cis298.cis298assignment3.wine_id";
 
     public static Intent newIntent(Context packageContext, UUID wineId){
@@ -42,7 +45,11 @@ public class BeverageActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment(){
-        return new WineFragment();
+
+        //return new WineFragment();
+
+        UUID wineId = (UUID) getIntent().getSerializableExtra(EXTRA_WINE_ID);
+        return WineFragment.newInstance(wineId);
     }
 
 
