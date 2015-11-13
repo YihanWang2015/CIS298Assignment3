@@ -31,10 +31,10 @@ public class WineFragment extends Fragment  {
     private CheckBox mActiveCheckBox;
 
 
-    public static WineFragment newInstance(UUID wineId){
+    public static WineFragment newInstance(String wineId){
 
         Bundle args = new Bundle();
-        args.putSerializable(ARG_WINE_ID, wineId);
+        args.putString(ARG_WINE_ID, wineId);
 
         WineFragment fragment = new WineFragment();
         fragment.setArguments(args);
@@ -51,7 +51,7 @@ public class WineFragment extends Fragment  {
 
       // UUID wineId = (UUID) getActivity().getIntent().getSerializableExtra(BeverageActivity.EXTRA_WINE_ID);
 
-        UUID wineId = (UUID) getArguments().getSerializable(ARG_WINE_ID);
+        String wineId = getArguments().getString(ARG_WINE_ID);
 
         mWine = WineLab.get(getActivity()).getWine(wineId);
 
@@ -125,7 +125,7 @@ public class WineFragment extends Fragment  {
 
 
         mPriceField = (EditText)v.findViewById(R.id.wine_price);
-        mPriceField.setText(mWine.getPrice());
+        mPriceField.setText("$"+ mWine.getPrice());
         mPriceField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

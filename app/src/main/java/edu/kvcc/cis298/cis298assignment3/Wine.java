@@ -21,10 +21,16 @@ public class Wine {
     }
 
 
+<<<<<<< HEAD
     public Wine(UUID uuid, String name, String pack, String price, boolean isActive){
 
         mId = uuid;
       // mItemNumber = itemNumber;
+=======
+    public Wine(String itemNumber, String name, String pack, String price, boolean isActive){
+
+        mItemNumber = itemNumber;
+>>>>>>> csv
         mName = name;
         mPack = pack;
         mPrice = price;
@@ -32,7 +38,10 @@ public class Wine {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> csv
     public UUID getId() {
         return mId;
     }

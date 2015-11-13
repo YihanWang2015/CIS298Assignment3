@@ -1,3 +1,4 @@
+/*
 package edu.kvcc.cis298.cis298assignment3;
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 public class BeverageActivity extends SingleFragmentActivity {
 
+*/
 /*    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +29,13 @@ public class BeverageActivity extends SingleFragmentActivity {
                     .commit();
         }
 
-    }*/
+    }*//*
 
+
+*/
 /*    public static final String EXTRA_WINE_ID =
-            "edu.kvcc.cis298.cis298assignment3.wine_id";*/
+            "edu.kvcc.cis298.cis298assignment3.wine_id";*//*
+
 
     private static final String EXTRA_WINE_ID =
             "edu.kvcc.cis298.cis298assignment3.wine_id";
@@ -58,3 +63,4 @@ public class BeverageActivity extends SingleFragmentActivity {
 
 
 }
+*/

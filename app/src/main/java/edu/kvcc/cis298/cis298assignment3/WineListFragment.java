@@ -103,7 +103,7 @@ public class WineListFragment extends Fragment{
 
             //Intent intent = new Intent(getActivity(), BeverageActivity.class);
            // Intent intent = BeverageActivity.newIntent(getContext(), mWine.getId());
-            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getId());
+            Intent intent = WinePagerActivity.newIntent(getActivity(), mWine.getItemNumber());
 
             startActivity(intent);
 
@@ -116,7 +116,7 @@ public class WineListFragment extends Fragment{
             mWine = wine;
             mNameTextView.setText(mWine.getName());
             mItemNumberTextView.setText(mWine.getItemNumber());
-            mPriceTextView.setText(mWine.getPrice());
+            mPriceTextView.setText("$" + mWine.getPrice());
 
 
         }
