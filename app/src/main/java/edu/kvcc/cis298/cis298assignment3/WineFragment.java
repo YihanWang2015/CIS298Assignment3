@@ -135,7 +135,7 @@ public class WineFragment extends Fragment  {
 
 
         mPriceField = (EditText)v.findViewById(R.id.wine_price);
-        mPriceField.setText("$"+ mWine.getPrice());
+        mPriceField.setText(mWine.getPrice());
         mPriceField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
