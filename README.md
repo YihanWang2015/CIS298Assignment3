@@ -2,7 +2,7 @@
 
 ## Author
 
-
+Yihan Wang
 
 ## Description
 
@@ -22,8 +22,8 @@ The properties of the CSV file are as follows:
 
 Solution Requirements:
 
-* Master layout (You can use the same layout for both Portrait and Landscape unless you feel the need to make one for each)
-* Detail layout (You can use the same layout for both Portrait and Landscape unless you feel the need to make one for each)
+* Master layout 
+* Detail layout 
 * Fragments for all of the layouts (Expect ViewPager. That one is a little different.)
 * Ability to click on a list item and start a new Activity that displays the details of the list item.
 * Updating information in the detail view should be reflected in the list view when returning to the list.
@@ -38,17 +38,6 @@ Solution Requirements:
 ![Application Master Portrait Layout](http://barnesbrothers.homeserver.com/cis298/assignmentImages/assignment3a.jpg "Application Master Portrait Layout")
 ![Application Detail Portrait Layout](http://barnesbrothers.homeserver.com/cis298/assignmentImages/assignment3b.jpg "Application Detail Portrait Layout")
 
-### Notes
 
-The book does not cover how to read in a CSV file. We will do something in class to demonstrate how to get the CSV read in.
-The location of the file to be read in is in the following paths:
-Inside Android Studio: app/res/raw/
-Through File System:   app/src/main/res/raw/
-
-## Outside Resources Used
-
-
-
-## Known Problems, Issues, And/Or Errors in the Program
 
 

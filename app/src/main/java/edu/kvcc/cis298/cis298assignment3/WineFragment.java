@@ -1,3 +1,7 @@
+/*Yihan Wang
+        CIS298Assignment3*/
+
+
 package edu.kvcc.cis298.cis298assignment3;
 
 import android.os.Bundle;
@@ -10,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+
 import android.widget.EditText;
 
 import java.util.UUID;

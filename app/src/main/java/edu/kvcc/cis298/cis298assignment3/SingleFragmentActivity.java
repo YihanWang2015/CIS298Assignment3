@@ -1,3 +1,8 @@
+/*Yihan Wang
+        CIS298Assignment3*/
+
+
+
 package edu.kvcc.cis298.cis298assignment3;
 
 import android.os.Bundle;
