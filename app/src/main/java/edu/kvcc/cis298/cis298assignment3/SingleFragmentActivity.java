@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
  */
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
+    //This method is declared as abstract so that every activity must implement this method
     protected abstract Fragment createFragment();
 
     @Override
@@ -17,11 +18,12 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-
+        //create an instance fm of FragmentManager and get the support method
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
+            //create a new stance of wineFragment, and then attach and commit the changes.
             fragment = createFragment();
             fm.beginTransaction()
                     .add(R.id.fragment_container, fragment)

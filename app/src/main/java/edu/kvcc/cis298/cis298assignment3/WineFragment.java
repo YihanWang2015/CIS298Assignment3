@@ -19,48 +19,52 @@ import java.util.UUID;
  */
 public class WineFragment extends Fragment  {
 
+    //static string as the key for parameters
     private static final String ARG_WINE_ID = "wine_id";
 
+    //class level variable for a wine
     private Wine mWine;
-    private EditText mNameField;
 
+    private EditText mNameField;
     private EditText mItemNumberField;
     private EditText mPackField;
     private EditText mPriceField;
-
     private CheckBox mActiveCheckBox;
 
-
+    //static method to create a new instance of a wineFragment based on wineId
     public static WineFragment newInstance(String wineId){
 
+        //create a new argument bundle
         Bundle args = new Bundle();
+        //put the wineId in as a value to the bundle
         args.putString(ARG_WINE_ID, wineId);
 
+        //create a new instance of this fragment
         WineFragment fragment = new WineFragment();
+        //set the argument on the fragment with the bundle
         fragment.setArguments(args);
+        //return the fragment
         return fragment;
     }
-
-
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // mWine = new Wine();
 
-      // UUID wineId = (UUID) getActivity().getIntent().getSerializableExtra(BeverageActivity.EXTRA_WINE_ID);
-
+        //get the string wineId
         String wineId = getArguments().getString(ARG_WINE_ID);
-
+        //get the singleton instance of wineLab
         mWine = WineLab.get(getActivity()).getWine(wineId);
 
     }
 
 
-
+    //inflate the view and get the content on the screen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        //make the layout that can be displayed
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
 
 
@@ -69,7 +73,7 @@ public class WineFragment extends Fragment  {
         mNameField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //THis space intentionally left blank
+
             }
 
             @Override
@@ -79,7 +83,7 @@ public class WineFragment extends Fragment  {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //This one too
+
             }
         });
 
@@ -89,7 +93,7 @@ public class WineFragment extends Fragment  {
         mItemNumberField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //left blank
+
             }
 
             @Override
@@ -99,7 +103,7 @@ public class WineFragment extends Fragment  {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //this one too
+
             }
         });
 
@@ -109,7 +113,7 @@ public class WineFragment extends Fragment  {
         mPackField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //left blank
+
             }
 
             @Override
@@ -129,7 +133,7 @@ public class WineFragment extends Fragment  {
         mPriceField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //left blank
+
             }
 
             @Override
@@ -139,7 +143,7 @@ public class WineFragment extends Fragment  {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //this one too
+
             }
         });
 
@@ -148,13 +152,12 @@ public class WineFragment extends Fragment  {
         mActiveCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //Set the wine's active property
 
+                //Set the wine's active property
                 mWine.setActive(isChecked);
             }
         });
 
         return v;
-
     }
 }

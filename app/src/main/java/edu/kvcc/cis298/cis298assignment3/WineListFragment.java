@@ -21,8 +21,10 @@ import java.util.List;
  */
 public class WineListFragment extends Fragment{
 
+    //class level variable to hold the recycler view.
     private RecyclerView mWineRecyclerView;
 
+    //variable to hold an instance of the adapter
     private WineAdapter mAdapter;
 
 
@@ -30,20 +32,29 @@ public class WineListFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        //get the view from the layout that will be displayed and use the inflater to inflate the layout.
         View view = inflater.inflate(R.layout.fragment_wine_list, container, false);
 
+        //get a reference to the recycler view in the layout file.
         mWineRecyclerView = (RecyclerView) view.findViewById(R.id.wine_recycler_view);
+
+        //the recycler view requires that it is given a layout manager
         mWineRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        //updateUI() method gets the data from the wineLab.
         updateUI();
 
+        //return the created view.
         return view;
     }
+
 
 
     @Override
     public void onResume(){
         super.onResume();
+
+        //update the UI
         updateUI();
     }
 
@@ -51,14 +62,23 @@ public class WineListFragment extends Fragment{
 
     private void updateUI(){
 
+        //get the collection of data from wineLab singleton
         WineLab wineLab = WineLab.get(getActivity());
+
+        //get the actual list of wines from the wineLab class
         List<Wine> wines = wineLab.getWines();
 
-
         if(mAdapter == null ) {
+
+            //create a new wineAdapter and send it over the list of wines
             mAdapter = new WineAdapter(wines);
+
+            //set the adapter to the recycler view.
             mWineRecyclerView.setAdapter(mAdapter);
+
         }else{
+
+            //notify the data set might have changed.
             mAdapter.notifyDataSetChanged();
         }
     }
