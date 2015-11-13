@@ -25,7 +25,7 @@ public class WinePagerActivity extends FragmentActivity {
 
 
 
-    public static Intent newIntent(Context packageContext, UUID wineId){
+    public static Intent newIntent(Context packageContext, String wineId){
         Intent intent = new Intent(packageContext, WinePagerActivity.class);
         intent.putExtra(EXTRA_WINE_ID, wineId);
         return intent;
@@ -39,8 +39,9 @@ public class WinePagerActivity extends FragmentActivity {
         setContentView(R.layout.activity_wine_pager);
 
 
-        UUID wineId = (UUID) getIntent().getSerializableExtra(EXTRA_WINE_ID);
+      //  UUID wineId = (UUID) getIntent().getSerializableExtra(EXTRA_WINE_ID);
 
+        String wineId = getIntent().getStringExtra(EXTRA_WINE_ID);
 
         mViewPager = (ViewPager) findViewById(R.id.activity_wine_pager_view_pager);
 
@@ -53,7 +54,7 @@ public class WinePagerActivity extends FragmentActivity {
             public Fragment getItem(int position) {
 
                 Wine wine = mWines.get(position);
-                return WineFragment.newInstance(wine.getId());
+                return WineFragment.newInstance(wine.getItemNumber());
             }
 
             @Override
@@ -66,7 +67,7 @@ public class WinePagerActivity extends FragmentActivity {
 
         for (int i = 0; i< mWines.size(); i++){
 
-            if(mWines.get(i).getId().equals(wineId)){
+            if(mWines.get(i).getItemNumber().equals(wineId)){
                 mViewPager.setCurrentItem(i);
                 break;
             }
